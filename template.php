@@ -4,7 +4,6 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 $this->addExternalCss($templateFolder . "/css/common.css");
 
-// Убедимся, что добавим стили
 foreach ($arResult["QUESTIONS"] as &$q) {
     $q["HTML_CODE"] = str_replace('<input', '<input class="input__input"', $q["HTML_CODE"]);
     $q["HTML_CODE"] = str_replace('<textarea', '<textarea class="input__input"', $q["HTML_CODE"]);
@@ -13,6 +12,7 @@ foreach ($arResult["QUESTIONS"] as &$q) {
         $q["HTML_CODE"] = str_replace('<textarea', '<textarea required', $q["HTML_CODE"]);
     }
 }
+
 $textarea = $arResult["QUESTIONS"]["SIMPLE_QUESTION_981"];
 unset($arResult["QUESTIONS"]["SIMPLE_QUESTION_981"]);
 ?>
@@ -22,7 +22,6 @@ unset($arResult["QUESTIONS"]["SIMPLE_QUESTION_981"]);
         <div class="contact-form__head-title">Связаться</div>
         <div class="contact-form__head-text">Наши сотрудники помогут выполнить подбор услуги и&nbsp;расчет цены с&nbsp;учетом ваших требований</div>
     </div>
-
 
 <?php
 if ($arResult["isFormErrors"] == "Y") {
